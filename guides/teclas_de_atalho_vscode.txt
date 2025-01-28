@@ -1,0 +1,43 @@
+Navegação e Edição
+    Ctrl + P: Abrir arquivos rapidamente.
+    Ctrl + Shift + O: Ir para o símbolo (função, classe, etc.) dentro do arquivo atual.
+    Ctrl + G: Ir para uma linha específica.
+    Ctrl + D: Selecionar a próxima ocorrência do texto selecionado.
+    Ctrl + L: Selecionar a linha inteira.
+    Ctrl + Shift + K: Excluir a linha atual.
+    Ctrl + Enter: Inserir uma nova linha abaixo da linha atual.
+    Ctrl + Shift + Enter: Inserir uma nova linha acima da linha atual.
+    Alt + Setas: Mover a linha ou o bloco de código selecionado para cima ou para baixo.
+    Ctrl + Shift + \: Ir para a chave correspondente (útil para blocos de código).
+    Ctrl + F: Abrir a barra de busca para encontrar texto no arquivo atual.
+    Ctrl + H: Abrir a barra de substituição para substituir texto no arquivo atual.
+    Ctrl + Shift + F: Buscar texto em todos os arquivos do projeto.
+    Ctrl + Shift + H: Substituir texto em todos os arquivos do projeto.
+    F3 ou Enter: Ir para a próxima ocorrência do termo encontrado.
+    Shift + F3 ou Shift + Enter: Ir para a ocorrência anterior do termo encontrado.
+    Alt + Enter: Selecionar todas as ocorrências do texto encontrado no arquivo atual.
+Seleção e Manipulação de Código
+    Shift + Alt + Setas: Expandir a seleção de código linha por linha.
+    Alt + Clique: Criar múltiplos cursores.
+    Ctrl + Shift + L: Selecionar todas as ocorrências do texto selecionado.
+    Ctrl + F2: Renomear todas as ocorrências de uma variável ou símbolo.
+Terminal e Consoles
+    Ctrl + Shift + ': Abrir um novo terminal integrado.
+    Ctrl + : Mostrar/ocultar o terminal integrado.
+    Ctrl + K + Ctrl + Shift + : Limpar o terminal.
+Refatoração
+    Ctrl + .: Acessar o menu de refatoração para sugestões e ações rápidas.
+    F2: Renomear símbolo (variável, função, etc.).
+Depuração
+    F5: Iniciar ou continuar depuração.
+    F9: Alternar breakpoint.
+    F10: Passo sobre (Step Over).
+    F11: Passo para dentro (Step Into).
+    Shift + F11: Passo para fora (Step Out).
+Controle de Git
+    Ctrl + Shift + G: Abrir a guia de controle de versão (Git).
+    Ctrl + K + Ctrl + G: Descartar alterações no arquivo atual.
+Organização de Janelas
+    Ctrl + B: Mostrar/ocultar a barra lateral.
+    Ctrl + \: Dividir a janela de editor em duas partes.
+    Ctrl + 1 / Ctrl + 2 / Ctrl + 3: Focar em um dos editores divididos.

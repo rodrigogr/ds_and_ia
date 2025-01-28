@@ -1,0 +1,86 @@
+api_key="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"
+
+########################## Criando Ambiente Virtual - Powershell ##########################
+
+1º No powershell do vsconde      :  python -m venv nome_ambiente_virtual(venv)
+2º No powershell admin do windows:  Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+3º Ativar ambiente virtual     :  .\venv\Scripts\Activate.ps1
+.\
+Para instalar uma nova biblioteca pelo terminal powershell:
+1º .\venv\Scripts\Activate.ps1
+2º pip install nomebiblioteca
+
+Força uma reinstalação para corrigir erros: pip install --force-reinstall pingouin
+
+########################## Criando Ambiente Virtual - Pyenv ##########################
+link: https://github.com/pyenv-win/pyenv-win
+
+Pyenv é uma ferramenta de gerenciamento de versões do Python. 
+Com o Pyenv, podemos definir uma versão global do Python, que será usada em qualquer IDE ou momento em que quisermos interagir com o Python. 
+Além disso, também podemos definir versões específicas para pastas ou projetos individuais. 
+O Pyenv nos permite instalar e gerenciar diferentes versões do Python em nossa máquina. 
+Vamos explorar como definir a versão global e local do Python usando o Pyenv, e como instalar novas versões do Python.
+
+**** Install ****
+
+1. Install pyenv-win in PowerShell: Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1" -OutFile "./install-pyenv-win.ps1"; &"./install-pyenv-win.ps1"
+2. Reopen PowerShell
+3. Run: [ pyenv --version ] to check if the installation was successful.
+4. Run: [ pyenv install -l ] to check a list of Python versions supported by pyenv-win
+5. Run: [ pyenv install <version> ] to install the supported version
+6. Run: [ pyenv global <version> ] to set a Python version as the global version
+7. Check which Python version you are using and its path:
+    7.1. Run: [ pyenv version ] 
+        <version> (set by \path\to\.pyenv\pyenv-win\.python-version)
+8. Check that Python is working
+    8.1. [ python -c "import sys; print(sys.executable)" ]
+        \path\to\.pyenv\pyenv-win\versions\<version>\python.exe
+
+**** pyenv-win commands ****
+   commands     List all available pyenv commands
+   local        Set or show the local application-specific Python version
+   latest       Print the latest installed or known version with the given prefix
+   global       Set or show the global Python version
+   shell        Set or show the shell-specific Python version
+   install      Install 1 or more versions of Python
+   uninstall    Uninstall 1 or more versions of Python
+   update       Update the cached version DB
+   rehash       Rehash pyenv shims (run this after switching Python versions)
+   vname        Show the current Python version
+   version      Show the current Python version and its origin
+   version-name Show the current Python version
+   versions     List all Python versions available to pyenv
+   exec         Runs an executable by first preparing PATH so that the selected Python version's `bin' directory is at the front
+   which        Display the full path to an executable
+   whence       List all Python versions that contain the given executable
+
+########################## Instalar uma Biblioteca com pipenv ##########################
+link: https://pipenv.pypa.io/en/latest/installation.html
+Instala a nova biblioteca, registra a dependencia no arquivo e já cria o ambiente virtual ao mesmo tempo, simplificando o gerenciamento das bibliotecas e ambientes virtuais
+
+Ativar pipenv: pipenv shell
+
+pipenv install <nome da biblioteca>
+
+########################## Formas Executar API ##########################
+
+uvicorn api_modelo_regressao:app --reload
+
+uvicorn main:app --host 0.0.0.0 --port 80 --reload
+
+########################## FastAPI ##########################
+
+Ambiente de teste Swagger: http://127.0.0.1:8000/docs
+
+########################## Streamlit ##########################
+Executar API ou código: python app_streamlit_salario.py
+Executar o Front-End com Streamlit: streamlit run app_streamlit_salario.py
+
+########################## Dicas ##########################
+
+# Toda vez que trabalhar com número científico, podemos tranformar em um decimal para ficar mais coompreensivo
+pd.set_option('display.float_format', lambda x: '%.15f' % x)
+
+# Criar Requirements.txt com todas as bibliotecas instaladas: pip freeze > requirements.txt
+
+

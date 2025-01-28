@@ -1,0 +1,108 @@
+################ Principais Conceitos e comandos Git e Github (Gitlab) #################
+
+========> Gitlab BB ========:
+
+1º: Inserir credenciais
+* git config --global user.name "f8711404 Rodrigo Goncalves Rebelo"
+* git config --global user.email "rodrigo.rebelo@bb.com.br"
+
+2º Clonar projeto
+* git clone https://....
+
+3º Ver se há atualizações
+* git pull origin master
+
+========> Git ========:
+
+* git init: Inicializa um repositório Git em um diretório.
+* git add <arquivo>: Adiciona um arquivo ao index para ser commitado.
+* git commit -m "mensagem": Realiza um commit com as alterações adicionadas ao index.
+    -> git commit --amend: Corrige o último commit, como a mensagem por exemplo. 
+                           Além disso, ele permite adicionar novos arquivos ao commit ou modificar os arquivos que já foram incluídos no commit anterior.
+* git log: Exibe o histórico de commits, mostrando o hash do commit, o autor, a data e a mensagem de commit.
+    -> git log --oneline: Exibe o histórico de commits de forma resumida, mostrando apenas o hash do commit e a mensagem de commit em uma única linha.
+* git status: Informações sobre o estado atual do repositório local.
+              Esse comando também sempre dá algumas dicas, como git restore por exemplo.
+* git diff: Comparar as modificações anteriores de um arquivo com o atual.
+    -> git diff: Diretório de trabalho e área de preparação (staging): 
+                 Mostra as diferenças entre os arquivos que foram modificados no diretório de trabalho, mas ainda não foram adicionados à área de preparação, e os arquivos na área de preparação.
+    -> git diff --staged: Área de preparação (staging) e o último commit: 
+                          Mostra as diferenças entre os arquivos que foram adicionados à área de preparação e o último commit.
+    -> git diff <commit1> <commit2>: Área de preparação (staging) e o último commit: 
+                                     Mostra as diferenças entre os arquivos que foram adicionados à área de preparação e o último commit.
+* git restore: Desfaz modificações em arquivos ou restaura para um estado anterior, sem alterar o histórico de commits do Git. 
+               Ele é uma alternativa ao git checkout e foi introduzido na versão 2.23 do Git.
+               Restaura arquivos no diretório de trabalho para um estado específico. 
+               Usado para desfazer modificações em arquivos, seja para reverter para a versão no último commit ou para a versão na área de preparação (staging).
+    -> git restore <file>: Restaurar arquivos modificados para o estado no último commit
+    -> git restore --staged <file>: Restaurar arquivos na área de preparação (staging) para o estado no último commit (Estágio anterior - Working Directory).
+    -> git restore --source=<commit> <file>: Restaurar arquivos excluídos, mas que ainda estão no histórico do Git.
+* git reset 
+    -> git reset --soft HEAD~1: Desfaz o último commit HEAD para o anterior.
+                                As alterações nos arquivos do commit desfeito permanecerão no diretório de trabalho, e você poderá recommitá-las ou modificá-las antes de fazer um novo commit.
+    -> git reset HEAD <file>: Desfazer mudanças no diretório de trabalho e na área de preparação (staging area).
+                              Isso remove o arquivo especificado da área de preparação, mas mantém as alterações no diretório de trabalho.
+                              
+========> GitHub ========:
+
+* git clone <url>: Clona um repositório Git existente para o seu computador.
+* git push: Envia as alterações locais para o repositório remoto.
+    -> git push -u origin <branch>: Define a branch remota como upstream e faz o push das alterações.
+* git pull: Atualiza o repositório local com as alterações do repositório remoto.
+    -> git pull --allow-unrelated-histories: Quando der conflito do repositório local com o remoto com a mensagem abaixo:
+
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" if you want to integrate the remote branch with yours)
+nothing to commit, working tree clean
+
+* git branch: Lista as branches disponíveis no repositório local.
+* git checkout <branch>: Altera para uma determinada branch.
+* git merge <branch>: Mescla as alterações de uma branch para outra.
+* Pull Requests: Usado para solicitar a mesclagem de alterações de uma branch para outra no GitHub.
+* git remote: Gerencia repositórios remotos. 
+    -> git remote --v: É uma variação do comando git remote que exibe URLs dos repositórios remotos configurados, juntamente com seus nomes. 
+                      A opção -v é abreviação de "verbose", o que significa que o comando fornece uma saída mais detalhada.
+    -> git remote: o git remote sem argumentos lista os repositórios remotos atualmente configurados.
+    -> git remote add origin <url>: Adiciona um repositório remoto chamado "origin".
+    -> git remote show origin: Visualiza informações sobre um repositório remoto.
+
+
+git fetch: Baixa todas as branches de um repositório remoto para o seu repositório local.
+git stash: Armazena temporariamente as alterações não commitadas em uma área de stash.
+git rebase: Reorganiza o histórico de commits.
+
+
+========> Conceitos complementares ========
+
+* Estágios do Arquivo:
+    1º Init Repository --------> 2º Working Directory (Modified) ---- add ---> 3° Stage Área (Staged) ---- commit ---> 4° Repository (commited)
+
+* HEAD: é uma referência dinâmica que aponta para o estado atual do seu repositório Git, seja um commit específico ou uma ramificação (branch). 
+Ele ajuda você a entender e controlar onde está no histórico do seu projeto e é essencial para navegar e gerenciar suas alterações.
+Imagine que seu repositório Git é como uma linha do tempo que registra todas as alterações feitas em seu projeto.
+Agora, o `HEAD` é como uma seta que aponta para um ponto específico nessa linha do tempo - é onde você está atualmente.
+
+         commit 1   commit 2   commit 3 (HEAD)
+            |          |           |
+            v          v           v
+----o------o----------o-----------o-------  Linha do tempo (história do projeto)
+
+À medida que você avança (fazendo commits), o `HEAD` se move para frente na linha do tempo do seu projeto.
+
+         commit 1   commit 2 (HEAD)   commit 3
+            |          |                 |
+            v          v                 v
+----o------o----------o-----------------o-------  Linha do tempo (história do projeto)
+
+Assim como um marcador de página em um livro, o `HEAD` marca o ponto exato onde você está em seu projeto Git. À medida que você avança na leitura (fazendo commits), o marcador de página (o `HEAD`) se move para frente na linha do tempo do seu projeto.
+
+         commit 1 (HEAD)   commit 2   commit 3
+            |                 |           |
+            v                 v           v
+----o------o-----------------o-----------o-------  Linha do tempo (história do projeto)
+
+* .gitignore: Arquivo usado pelo Git para especificar arquivos e diretórios que devem ser ignorados, ou seja, que o Git deve ignorar ao rastrear mudanças em um repositório.
+* .gitkeep:  Sobe pastas vazias, ignoradas pelo Git, para o repositório remoto.
+* Issues: Usado para rastrear tarefas, bugs ou solicitações de funcionalidades.
