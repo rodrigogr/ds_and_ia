@@ -1,5 +1,3 @@
-api_key="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"
-
 ########################## Criando Ambiente Virtual - Powershell ##########################
 
 1º No powershell do vsconde      :  python -m venv nome_ambiente_virtual(venv)
